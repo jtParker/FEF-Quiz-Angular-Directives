@@ -1,0 +1,8 @@
+<div class="storeFront">
+  <h2 id="storeHeading">{{legos.name}}</h2>
+  <p id="brickColors">Number of colors: {{legos.brickColors.length}}</p>
+  <div id="colorList" ng-repeat="(brick, val) in legos.bricks">
+    <h3 id="color-{{brick}}">{{brick}}</h3>
+
+  </div>
+</div>
