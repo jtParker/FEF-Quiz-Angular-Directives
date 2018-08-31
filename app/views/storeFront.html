@@ -1,8 +1,17 @@
 <div class="storeFront">
   <h2 id="storeHeading">{{legos.name}}</h2>
   <p id="brickColors">Number of colors: {{legos.brickColors.length}}</p>
-  <div id="colorList" ng-repeat="(brick, val) in legos.bricks">
-    <h3 id="color-{{brick}}">{{brick}}</h3>
-
-  </div>
+  <ul id="colorList">
+    <li id=color-{{color}} class="row" ng-repeat="(color, val) in legos.bricks">
+    {{color}}
+    <ul>
+      <li class="col-sm-3 well brick-{{name}}" ng-class="{'low-stock': size.quantity < 10}" ng-repeat="(name, size) in val">
+        <p class="size">Size: {{name}}</p>
+        <p class="quantity">Quantity: {{size.quantity}}</p><span class="coming-soon" ng-if="size.quantity < 5">Comming Soon!</span>
+        <p class="price">${{size.price}}</p>
+        <button type="button" class="buyButton" ng-click="legos.buy(size, size)">Buy</button> <button type="button" class="returnButton" ng-click="legos.return(brick, size)">Return</button>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
